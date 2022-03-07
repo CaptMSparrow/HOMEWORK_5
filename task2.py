@@ -67,16 +67,17 @@ print(f'Количество совершеннолетних: {count_age}')
 all_list_of_names = [name_of_p['name'] for name_of_p in persons]
 print(f'Список всех имен: {all_list_of_names}')
 # oтсортированный список всех возрастов без повторений
-list_of_all_ages = []
-list_of_ages = [ages['age'] for ages in persons]
-for age in list_of_ages:
-    if age not in list_of_all_ages:
-        list_of_all_ages.append(age)
-list_of_all_ages.sort()
+# list_of_all_ages = []
+list_of_ages = {ages['age'] for ages in persons}
+# for age in list_of_ages:
+  #  if age not in list_of_all_ages:
+   #     list_of_all_ages.append(age)
+# list_of_all_ages.sort()
+list_of_all_ages = list(sorted(list_of_ages))
 print(f'Отсортированный список всех возрастов: {list_of_all_ages}')
 # самые встречающиеся имена
 most_common_names = Counter(all_list_of_names)
 print(f'Три самых популярных имени: {most_common_names.most_common(3)}')
 # Имена мужчин старше 35, имя которых начинается с L
-men_over = [m['name'] for m in all_m if 'L' in m['name'] if m['age'] > 35]
+men_over = [m['name'] for m in all_m if 'L' in m['name'] and m['age'] > 35]
 print(f'Список всех мужчин старше 35 и именем на букву L: {men_over}')

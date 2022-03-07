@@ -12,6 +12,10 @@ line2 = input('Введите вторые катеты: ')
 line1_new = line1.replace(' ', '')
 line2_new = line2.replace(' ', '')
 
+
+# line1 = [float(num) for num in line1.split()]
+
+
 if (line1_new.isdigit() and line2_new.isdigit()) is not True:
     raise NonNumericError('Введены были не числа')
 
